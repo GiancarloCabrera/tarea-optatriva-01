@@ -89,12 +89,6 @@ workspace.build('''
     (assert (suggestion (destination "Hotel two blocks from the beach"))))
 ''')
 
-workspace.build('''
-(defrule city-medium-budget
-    (user (likes city) (travel_style solo) (budget medium))
-    =>
-    (assert (suggestion (destination "Cultural tour in Paris"))))
-''')
 
 workspace.build('''
 (defrule nature-low-budget
@@ -108,6 +102,69 @@ workspace.build('''
     (user (likes culture) (travel_style group) (budget medium))
     =>
     (assert (suggestion (destination "Visit to temples in Japan"))))
+''')
+
+workspace.build('''
+(defrule city-low-budget-solo
+    (user (likes city) (travel_style solo) (budget low))
+    =>
+    (assert (suggestion (destination "Backpacking in Eastern Europe"))))
+''')
+
+workspace.build('''
+(defrule city-medium-budget-solo
+    (user (likes city) (travel_style solo) (budget medium))
+    =>
+    (assert (suggestion (destination "Cultural tour in Paris"))))
+''')
+
+workspace.build('''
+(defrule city-high-budget-solo
+    (user (likes city) (travel_style solo) (budget high))
+    =>
+    (assert (suggestion (destination "Luxury trip to New York City"))))
+''')
+
+workspace.build('''
+(defrule city-low-budget-group
+    (user (likes city) (travel_style group) (budget low))
+    =>
+    (assert (suggestion (destination "City break in Southeast Asia"))))
+''')
+
+workspace.build('''
+(defrule city-medium-budget-group
+    (user (likes city) (travel_style group) (budget medium))
+    =>
+    (assert (suggestion (destination "Weekend in Rome"))))
+''')
+
+workspace.build('''
+(defrule city-high-budget-group
+    (user (likes city) (travel_style group) (budget high))
+    =>
+    (assert (suggestion (destination "Gourmet trip to Tokyo"))))
+''')
+
+workspace.build('''
+(defrule city-low-budget-family
+    (user (likes city) (travel_style family) (budget low))
+    =>
+    (assert (suggestion (destination "Staycation in a nearby city"))))
+''')
+
+workspace.build('''
+(defrule city-medium-budget-family
+    (user (likes city) (travel_style family) (budget medium))
+    =>
+    (assert (suggestion (destination "Family trip to Madrid"))))
+''')
+
+workspace.build('''
+(defrule city-high-budget-family
+    (user (likes city) (travel_style family) (budget high))
+    =>
+    (assert (suggestion (destination "Exploration of Dubai"))))
 ''')
 
 def generate_suggestion(likes=None, travel_style=None, budget=None):
